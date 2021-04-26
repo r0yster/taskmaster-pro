@@ -51,14 +51,10 @@ var saveTasks = function() {
 
 var auditTask = function(taskEl) {
   // get date from task element
-<<<<<<< HEAD
-  var date = $(taskEl).find("span").text().trim();
-=======
   var date = $(taskEl)
   .find("span")
   .text()
   .trim();
->>>>>>> feature/touch-ups
 
   // convert to moment object at 5:00pm
   var time = moment(date, "L").set("hour", 17);
@@ -72,11 +68,7 @@ var auditTask = function(taskEl) {
   } else if (Math.abs(moment().diff(time, "days")) <= 2) {
     $(taskEl).addClass("list-group-item-warning");
   }
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> feature/touch-ups
 
 $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
@@ -241,19 +233,11 @@ $(".list-group").on("click", "span", function() {
     .val(date);
   $(this).replaceWith(dateInput);
 
-<<<<<<< HEAD
-  // enable jquery ui datepicker
-  dateInput.datepicker({
-    minDate: 1,
-    onClose: function() {
-      // when calendar is closed, force a "change" event on the `dateInput`
-=======
   // enable jquery ui date picker
   dateInput.datepicker({
     minDate: 1,
     onClose: function() {
       // when calendar is closed, force a "change" event
->>>>>>> feature/touch-ups
       $(this).trigger("change");
     }
   });
@@ -284,13 +268,7 @@ $(".list-group").on("change", "input[type='text']", function() {
     .addClass("badge badge-primary badge-pill")
     .text(date);
     $(this).replaceWith(taskSpan);
-<<<<<<< HEAD
-
-  // Pass task's <li> element into auditTask() to check new due date
-  auditTask($(taskSpan).closest(".list-group-item"));
-=======
     auditTask($(taskSpan).closest(".list-group-item"));
->>>>>>> feature/touch-ups
 });
 
 // remove all tasks
